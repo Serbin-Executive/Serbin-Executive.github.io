@@ -1,0 +1,35 @@
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    padding: 10px;
+    border: 1px solid #c2c4c4;
+    border-radius: 10px;
+}
+
+.auth-title {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.auth-label {
+    padding: 5px 10px 5px 10px;
+}
+
+.auth-input {
+    margin-bottom: 10px;
+    outline: none;
+    border: none;
+    padding: 5px 10px 5px 10px;
+    border-bottom: 1px solid silver;
+}
+
+.auth-input:focus {
+    border-color: #8d8f8f;
+}
+
+.auth-button {
+    padding: 5px;
+    border: none;
+    border-radius: 8px;
+}

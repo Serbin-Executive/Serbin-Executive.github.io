@@ -5,7 +5,10 @@ import CoursePage from "../pages/Course";
 import LessonPage from "../pages/Lesson";
 import ProfilePage from "../pages/Profile";
 import NotFoundPage from "../pages/NotFound";
-import AuthPage from "../pages/Auth";
+// import AuthPage from "../pages/SignIn";
+import SignInPage from "../pages/SignIn"
+import SignUpPage from "../pages/SignUp";
+import path from "path";
 
 export const paths = {
     LANDING: {
@@ -13,10 +16,21 @@ export const paths = {
         path: "/",
         label: "Landing",
     },
-    AUTH: {
-        id: "Auth",
-        path: "/auth",
-        label: "Auth",
+    // AUTH: {
+    //     id: "Auth",
+    //     path: "/auth",
+    //     label: "Auth",
+    // },
+
+    SIGNIN: {
+        id: 'Signin',
+        path: '/signin',
+        label: "Signin",
+    },
+    SIGNUP: {
+        id: 'Signup',
+        path: '/signup',
+        label: "Signup",
     },
     HOME: {
         id: "Home",
@@ -54,9 +68,13 @@ const routes: RouteObject[] = [
         ...paths.HOME,
         element: <HomePage />,
     },
+    // {
+    //     ...paths.AUTH,
+    //     element: <AuthPage />
+    // },
     {
-        ...paths.AUTH,
-        element: <AuthPage />
+        ...paths.SIGNIN,
+        element: <SignInPage />
     },
     {
         ...paths.PROFILE,
@@ -74,6 +92,10 @@ const routes: RouteObject[] = [
         ...paths.NOT_FOUND,
         element: <NotFoundPage />,
     },
+    {
+        ...paths.SIGNUP,
+        element: <SignUpPage />
+    }
 ];
 
 export default routes;
