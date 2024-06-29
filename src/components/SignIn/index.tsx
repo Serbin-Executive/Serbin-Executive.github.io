@@ -1,42 +1,24 @@
 import {
-    ChangeEvent,
-    Dispatch,
     ReactElement,
-    SetStateAction,
-    useState,
 } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { paths } from "../../router/routes";
 import { setCurrentUser, setIsLoggedIn } from "../../store/slices/User";
 import User from "../../domains/User";
 import { useAppDispatch } from "../../store";
-import { useFormWithValidation } from "../../hooks/useFormWithValidation";
+import useFormWithValidation, { EMAIL_PATTERN } from "../../hooks/useFormWithValidation";
 
 const SignIn = (): ReactElement => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
-    const EMAIL_PATTERT = "^([^ ]+@[^ ]+\\.[a-z]{2,6}|)$";
-    const [email, setEmail] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
-    // eslint-disable-next-line
-    const [validationErrors, setValidationErrors] = useState<string[]>([]);
+
     const { values, handleChangeValue, errors, isValid } = useFormWithValidation();
 
-    const isSubmitDisallowed =
-        !email && !password && validationErrors.length > 0;
-
     const handleSignIn = () => {
-        //temp
-        dispatch(setCurrentUser(new User(email, email)));
+        // temp doubled email
+        dispatch(setCurrentUser(new User(values.email, values.email)));
         dispatch(setIsLoggedIn(true));
         navigate(paths.HOME.path);
-    };
-
-    const handleChange = (
-        event: ChangeEvent<HTMLInputElement>,
-        handler: Dispatch<SetStateAction<string>>
-    ) => {
-        handler(event.target.value);
     };
 
     return (
@@ -51,7 +33,7 @@ const SignIn = (): ReactElement => {
                 required
                 name="email"
                 value={values.email || ''}
-                pattern={EMAIL_PATTERT}
+                pattern={EMAIL_PATTERN}
 
             />
             <span className="auth-error">

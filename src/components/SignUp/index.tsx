@@ -1,48 +1,22 @@
 import {
-    ChangeEvent,
-    Dispatch,
     ReactElement,
-    SetStateAction,
-    useState,
 } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { paths } from "../../router/routes";
 import { useAppDispatch } from "../../store";
 import { setCurrentUser, setIsLoggedIn } from "../../store/slices/User";
+import useFormWithValidation, { EMAIL_PATTERN } from "../../hooks/useFormWithValidation";
 import User from "../../domains/User";
-import { useFormWithValidation } from "../../hooks/useFormWithValidation";
 
 const SignUp = (): ReactElement => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
-    const EMAIL_PATTERT = "^([^ ]+@[^ ]+\\.[a-z]{2,6}|)$";
     const { values, handleChangeValue, errors, isValid } = useFormWithValidation();
 
-    const [email, setEmail] = useState<string>("");
-    const [username, setUsername] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
-    const [rePassword, setRePassword] = useState<string>("");
-    // eslint-disable-next-line
-    const [validationErrors, setValidationErrors] = useState<string[]>([]);
-
-    const isSubmitDisallowed =
-        !email &&
-        !username &&
-        !password &&
-        password !== rePassword &&
-        validationErrors.length > 0;
-
-    const handleChange = (
-        event: ChangeEvent<HTMLInputElement>,
-        handler: Dispatch<SetStateAction<string>>
-    ) => {
-        handler(event.target.value);
-    };
-
     const handleSignUp = () => {
-        //temp
-        dispatch(setCurrentUser(new User(email, email)));
+         // temp doubled email
+        dispatch(setCurrentUser(new User(values.email, values.email)));
         dispatch(setIsLoggedIn(true));
         navigate(paths.HOME.path);
     };
@@ -58,7 +32,7 @@ const SignUp = (): ReactElement => {
                 placeholder="Type your email here"
                 onChange={handleChangeValue}
                 value={values.email || ''}
-                pattern={EMAIL_PATTERT}
+                pattern={EMAIL_PATTERN}
             />
             <span className="auth-error">
                 {errors.email}

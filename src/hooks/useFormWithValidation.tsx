@@ -1,6 +1,5 @@
 import { useCallback, useState, ChangeEvent } from "react";
 
-
 interface Values {
   [key: string]: string;
 }
@@ -8,8 +7,9 @@ interface Values {
 interface Errors {
   [key: string]: string;
 }
+export const EMAIL_PATTERN = "^([^ ]+@[^ ]+\\.[a-z]{2,6}|)$";
 
-export function useFormWithValidation() {
+const useFormWithValidation = () => {
   const [values, setValues] = useState<Values>({});
   const [errors, setErrors] = useState<Errors>({});
   const [isValid, setIsValid] = useState<boolean>(false);
@@ -63,3 +63,5 @@ export function useFormWithValidation() {
     setValues,
   };
 }
+
+export default useFormWithValidation;
