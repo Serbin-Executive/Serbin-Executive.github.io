@@ -1,12 +1,18 @@
-import { ReactElement } from "react";
+import { ReactElement, useState } from "react";
 import "./style.css";
 
 export interface ISidebarProps {
     // children: ReactElement;
 }
 
-const Sidebar = ({}: ISidebarProps): ReactElement => {
-    return <aside className="Sidebar"></aside>;
+const Sidebar = (): ReactElement => {
+    const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
+
+    return <aside className={`sidebar ${isCollapsed && "collapsed"}`}>
+        <button onClick={() => setIsCollapsed(!isCollapsed)}>
+            {isCollapsed ? "Expand" : "Collapse"}
+        </button>
+    </aside>;
 };
 
 export default Sidebar;

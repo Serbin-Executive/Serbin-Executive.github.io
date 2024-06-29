@@ -5,7 +5,7 @@ export interface IHeaderProps {
     // children: ReactElement;
 }
 
-const Header = ({}: IHeaderProps): ReactElement => {
+const Header = (): ReactElement => {
     return <header className="header"></header>;
 };
 

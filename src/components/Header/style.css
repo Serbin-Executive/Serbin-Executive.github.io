@@ -1,0 +1,11 @@
+.header {
+    width: 100%;
+    height: var(--navbar-height);
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    right: 0;
+    
+    border: var(--decorative-border);
+}

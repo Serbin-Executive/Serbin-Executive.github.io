@@ -5,7 +5,7 @@ export interface IUserSlice {
 }
 
 const initialState: IUserSlice = {
-    isLoggedIn: false,
+    isLoggedIn: true,
 };
 
 export const userSlice: Slice<IUserSlice> = createSlice({

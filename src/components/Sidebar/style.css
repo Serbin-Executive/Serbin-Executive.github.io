@@ -1,0 +1,11 @@
+.sidebar {
+    width: var(--aside-width);
+    height: 100%;
+    transition: .3s all;
+
+    border: var(--decorative-border);
+}
+
+.sidebar.collapsed {
+    width: var(--minimum-aside-width);
+}
