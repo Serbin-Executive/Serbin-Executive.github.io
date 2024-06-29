@@ -13,7 +13,7 @@ export const ProtectedRoute = ({
     const isLoggedIn = useAppSelector((state) => state.user.isLoggedIn);
 
     if (!isLoggedIn) {
-        return <Navigate to={paths.AUTH.path} />;
+        return <Navigate to={paths.SIGNIN.path} />;
     }
 
     return children;
