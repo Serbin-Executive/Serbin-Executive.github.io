@@ -1,12 +1,16 @@
 import { ReactElement } from "react";
+import Logo from "../Logo";
+import ProfileShortcut from "../ProfileShortcut";
 import "./style.css";
 
-export interface IHeaderProps {
-    // children: ReactElement;
-}
-
 const Header = (): ReactElement => {
-    return <header className="header"></header>;
+
+    return <header className="header">
+        <nav>
+            <Logo />
+            <ProfileShortcut />
+        </nav>
+    </header>;
 };
 
 export default Header;

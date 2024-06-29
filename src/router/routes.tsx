@@ -7,7 +7,6 @@ import ProfilePage from "../pages/Profile";
 import NotFoundPage from "../pages/NotFound";
 import SignInPage from "../pages/SignIn"
 import SignUpPage from "../pages/SignUp";
-import path from "path";
 
 export const paths = {
     LANDING: {
@@ -15,15 +14,15 @@ export const paths = {
         path: "/",
         label: "Landing",
     },
-    SIGNIN: {
-        id: 'Signin',
-        path: '/signin',
-        label: "Signin",
+    SIGN_IN: {
+        id: 'Sign-in',
+        path: '/sign-in',
+        label: "Sign-in",
     },
-    SIGNUP: {
-        id: 'Signup',
-        path: '/signup',
-        label: "Signup",
+    SIGN_UP: {
+        id: 'Sign-up',
+        path: '/sign-up',
+        label: "Sign-up",
     },
     HOME: {
         id: "Home",
@@ -62,8 +61,12 @@ const routes: RouteObject[] = [
         element: <HomePage />,
     },
     {
-        ...paths.SIGNIN,
+        ...paths.SIGN_IN,
         element: <SignInPage />
+    },
+    {
+        ...paths.SIGN_UP,
+        element: <SignUpPage />
     },
     {
         ...paths.PROFILE,
@@ -81,10 +84,6 @@ const routes: RouteObject[] = [
         ...paths.NOT_FOUND,
         element: <NotFoundPage />,
     },
-    {
-        ...paths.SIGNUP,
-        element: <SignUpPage />
-    }
 ];
 
 export default routes;
