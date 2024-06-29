@@ -13,8 +13,8 @@ const SignUp = (): ReactElement => {
         <p className="auth-label">Repeat password</p>
         <input type="password" placeholder="Repeat password" className="auth-input" />
         <button className="auth-button">sign up</button>
-        <h4 className='auth-subtitle'>Уже зарегистрированы?
-            <Link className="auth-link" to="/signin"> Войти</Link></h4>
+        <h4 className='auth-subtitle'>Already registered?
+            <Link className="auth-link" to="/signin"> Sign in</Link></h4>
     </form>;
 };
 

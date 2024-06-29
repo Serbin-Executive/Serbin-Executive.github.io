@@ -9,8 +9,8 @@ const SignIn = (): ReactElement => {
         <p className="auth-label">Password</p>
         <input type="password" placeholder="Password" className="auth-input" />
         <button className="auth-button">sign in</button>
-        <h4 className='auth-subtitle'>Еще не зарегистрированы?
-        <Link className="auth-link" to="/signup"> Зарегистрироваться</Link></h4>
+        <h4 className='auth-subtitle'>Not registered yet?
+        <Link className="auth-link" to="/signup"> Sign up</Link></h4>
     </form>;
 };
 
