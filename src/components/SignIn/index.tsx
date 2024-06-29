@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-
+import { Link } from "react-router-dom";
 
 const SignIn = (): ReactElement => {
     return <form className="auth-form">
@@ -9,6 +9,8 @@ const SignIn = (): ReactElement => {
         <p className="auth-label">Password</p>
         <input type="password" placeholder="Password" className="auth-input" />
         <button className="auth-button">sign in</button>
+        <h4 className='auth-subtitle'>Еще не зарегистрированы?
+        <Link className="auth-link" to="/signup"> Зарегистрироваться</Link></h4>
     </form>;
 };
 
