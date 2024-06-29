@@ -36,12 +36,14 @@ export const paths = {
     },
     COURSE: {
         id: "Course",
-        path: "/course",
+        path: "/course/:id",
+        basePath: "/course",
         label: "Course",
     },
     LESSON: {
         id: "Lesson",
-        path: "/lesson",
+        path: "/lesson/:id",
+        basePath: "/lesson",
         label: "Courses",
     },
     NOT_FOUND: {

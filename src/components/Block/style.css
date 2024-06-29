@@ -1,5 +1,6 @@
 .block {
     background-color: lightslategray;
+    color: white;
 }
 
 .block.mixed {
@@ -10,4 +11,5 @@
 
 .block.text {
     background-color: transparent;
+    color: black;
 }
