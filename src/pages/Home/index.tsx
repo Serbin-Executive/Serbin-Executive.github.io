@@ -1,7 +1,12 @@
-import { ReactElement } from "react"
+import { ReactElement } from "react";
+import { ProtectedRoute } from "../../components/ProtectedRoute";
 
 const HomePage = (): ReactElement => {
-    return <h1>Home page</h1>
-}
+    return (
+        <ProtectedRoute>
+            <h1>Home page</h1>
+        </ProtectedRoute>
+    );
+};
 
 export default HomePage;

@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import pagesMeta from "./meta";
+import pagesMeta from "./routes";
 
 const Router = createBrowserRouter(pagesMeta);
 
