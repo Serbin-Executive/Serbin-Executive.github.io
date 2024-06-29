@@ -10,10 +10,14 @@ import { paths } from "../../router/routes";
 import { useAppDispatch } from "../../store";
 import { setCurrentUser, setIsLoggedIn } from "../../store/slices/User";
 import User from "../../domains/User";
+import { useFormWithValidation } from "../../hooks/useFormWithValidation";
 
 const SignUp = (): ReactElement => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+
+    const EMAIL_PATTERT = "^([^ ]+@[^ ]+\\.[a-z]{2,6}|)$";
+    const { values, handleChangeValue, errors, isValid } = useFormWithValidation();
 
     const [email, setEmail] = useState<string>("");
     const [username, setUsername] = useState<string>("");
@@ -49,34 +53,60 @@ const SignUp = (): ReactElement => {
             <p className="auth-label">EMAIL</p>
             <input
                 type="email"
+                name="email"
                 className="auth-input"
                 placeholder="Type your email here"
-                onChange={(event) => handleChange(event, setEmail)}
+                onChange={handleChangeValue}
+                value={values.email || ''}
+                pattern={EMAIL_PATTERT}
             />
+            <span className="auth-error">
+                {errors.email}
+            </span>
             <p className="auth-label">USERNAME</p>
             <input
                 type="text"
                 className="auth-input"
                 placeholder="Type your username here"
-                onChange={(event) => handleChange(event, setUsername)}
+                name="username"
+                required
+                onChange={handleChangeValue}
+                value={values.username || ''}
             />
+            <span className="auth-error">
+                {errors.username}
+            </span>
             <p className="auth-label">PASSWORD</p>
             <input
                 type="password"
                 className="auth-input"
                 placeholder="Type your password here"
-                onChange={(event) => handleChange(event, setPassword)}
+                onChange={handleChangeValue}
+                name="password"
+                required
+                minLength={8}
+                value={values.password || ''}
             />
+            <span className="auth-error">
+                {errors.password}
+            </span>
             <p className="auth-label">REPEAT PASSWORD</p>
             <input
                 type="password"
                 className="auth-input"
                 placeholder="Type your password again here"
-                onChange={(event) => handleChange(event, setRePassword)}
+                onChange={handleChangeValue}
+                name="repPassword"
+                required
+                minLength={8}
+                value={values.repPassword || ''}
             />
+            <span className="auth-error">
+                {errors.repPassword}
+            </span>
             <button
                 className="auth-button"
-                disabled={isSubmitDisallowed}
+                disabled={!isValid}
                 onClick={handleSignUp}
             >
                 SIGN UP
