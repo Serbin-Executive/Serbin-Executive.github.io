@@ -1,0 +1,21 @@
+.lesson-container {
+    padding: 30px;
+    height: 100%;
+    overflow: auto;
+}
+
+.lesson-content {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.lesson-content p {
+    line-height: 200%;
+}
+
+.lesson-content .block {
+    flex-shrink: 0;
+}

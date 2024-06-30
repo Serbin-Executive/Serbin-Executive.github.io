@@ -1,0 +1,12 @@
+.profile-page {
+    padding: 30px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 30px;
+    margin-bottom: 30px;
+}
