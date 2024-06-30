@@ -60,6 +60,18 @@
     transition: opacity 0.2s ease;
 }
 
+.auth-link.large {
+    font-size: 18px;
+    text-align: center;
+
+
+}
+
+.link-title {
+    text-align: center;
+    font-weight: 500;
+}
+
 .auth-error {
     color: #EE3465;
     font-size: 10px;
