@@ -5,7 +5,8 @@ export const enum blockTypes {
     TEXT = "text",
     PALLETTE = "pallette",
     MIXED = "mixed",
-    ROUNDED = "rounded",
+    OUTLINED = 'outlined',
+    ROUNDED = 'rounded',
 }
 
 export interface IBlockProps {
@@ -25,7 +26,7 @@ const Block = ({
     height = "100%",
     type = blockTypes.MIXED,
     additionalSelectors,
-    onClick = () => {return;}
+    onClick = () => { return; }
 }: IBlockProps): ReactElement => {
     const blockStyle = {
         width: width,

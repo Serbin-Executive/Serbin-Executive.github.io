@@ -1,0 +1,18 @@
+.blocks-set {
+    
+}
+
+/* .blocks-set.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+} */
+
+.blocks-set.flex-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+    width: 100%;
+    flex-wrap: nowrap;
+}

@@ -1,6 +1,18 @@
 .block {
     background-color: lightslategray;
     color: white;
+    flex-shrink: 0;
+}
+
+
+.block.outlined {
+    border: 1px solid lightslategray;
+    background-color: transparent;
+}
+
+
+
+.block.mixed {
     transition: .15s;
     padding: 5px;
     border-radius: 4px;
