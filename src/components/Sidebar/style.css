@@ -1,11 +1,32 @@
 .sidebar {
+    display: flex;
+    flex-direction: column;
     width: var(--aside-width);
     height: 100%;
     transition: .3s all;
+    overflow: hidden;
 
     border: var(--decorative-border);
 }
 
 .sidebar.collapsed {
     width: var(--minimum-aside-width);
+}
+
+.courses-navigation-list {
+    margin-bottom: auto;
+}
+
+.block.sided {
+    border-radius: 0;
+    justify-content: start;
+    text-align: left;
+}
+
+.course-letter {
+    font-size: 30px;
+    display: block;
+    width: calc(var(--minimum-aside-width) - 5px);
+    flex-shrink: 0;
+    text-align: center;
 }
