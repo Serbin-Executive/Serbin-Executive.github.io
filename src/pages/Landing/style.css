@@ -1,8 +1,15 @@
-.blocks-set-container {
-    padding: 20px;
+.landing-content{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 50px 10vw;
+    height: 100%;
+    overflow: auto;
 }
 
 /* temp */
 .link-container {
-    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
