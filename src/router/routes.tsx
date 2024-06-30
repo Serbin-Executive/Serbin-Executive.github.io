@@ -31,19 +31,20 @@ export const paths = {
     },
     PROFILE: {
         id: "Profile",
-        path: "/profile",
+        path: "/profile/:username",
+        basePath: "/profile/",
         label: "Profile",
     },
     COURSE: {
         id: "Course",
-        path: "/course/:id",
-        basePath: "/course",
+        path: "/course/:courseId",
+        basePath: "/course/",
         label: "Course",
     },
     LESSON: {
         id: "Lesson",
-        path: "/lesson/:id",
-        basePath: "/lesson",
+        path: "/course/:courseId/lesson/:lessonId",
+        basePath: "/lesson/",
         label: "Courses",
     },
     NOT_FOUND: {

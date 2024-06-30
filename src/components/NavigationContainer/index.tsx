@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
-import Block from "../Block";
 import { useNavigate } from "react-router-dom";
-
+import Block from "../Block";
+import "./style.css";
 export interface INavigationContainerProps {
     title: string;
 }

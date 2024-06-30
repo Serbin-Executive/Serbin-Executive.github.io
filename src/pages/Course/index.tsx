@@ -1,32 +1,42 @@
 import { ReactElement } from "react";
-import { Link, useParams } from "react-router-dom";
+import { paths } from "../../router/routes";
+import { useNavigate, useParams } from "react-router-dom";
 import GeneralLayout from "../../layouts/General";
 import Lessons from "../../data/lessons.json";
 import Block from "../../components/Block";
-import { paths } from "../../router/routes";
+
 import "./style.css";
 import NavigationContainer from "../../components/NavigationContainer";
+import { ProtectedRoute } from "../../components/ProtectedRoute";
 
 const CoursePage = (): ReactElement => {
-    const { id: courseId } = useParams();
+    const { courseId } = useParams();
+    const navigate = useNavigate();
 
     return (
-        <GeneralLayout>
-            <div className="course-container">
-                <NavigationContainer title={`${courseId} course`}/>
-                {Lessons.map((lesson) => (
-                    <Block height="50px" key={lesson.id}>
-                        <Link
-                            to={`${paths.LESSON.basePath}/${
-                                courseId + lesson.name
-                            }`}
+        <ProtectedRoute>
+            <GeneralLayout>
+                <div className="course-container">
+                    <NavigationContainer title={`${courseId} course`} />
+                    {Lessons.map((lesson) => (
+                        <Block
+                            height="50px"
+                            key={lesson.id}
+                            onClick={() =>
+                                navigate(
+                                    paths.COURSE.basePath +
+                                        courseId +
+                                        paths.LESSON.basePath +
+                                        lesson.id
+                                )
+                            }
                         >
-                            {`${courseId} ${lesson.name}`}
-                        </Link>
-                    </Block>
-                ))}
-            </div>
-        </GeneralLayout>
+                            <p>{lesson.name}</p>
+                        </Block>
+                    ))}
+                </div>
+            </GeneralLayout>
+        </ProtectedRoute>
     );
 };
 

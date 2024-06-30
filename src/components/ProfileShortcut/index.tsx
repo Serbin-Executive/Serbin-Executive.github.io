@@ -4,6 +4,7 @@ import { setIsLoggedIn, setCurrentUser } from "../../store/slices/User";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { paths } from "../../router/routes";
 import Block, { blockTypes } from "../Block";
+import "./style.css";
 
 const ProfileShortcut = (): ReactElement => {
     const dispatch = useAppDispatch();
@@ -21,17 +22,23 @@ const ProfileShortcut = (): ReactElement => {
 
     const UserBlock = (): ReactElement => {
         return (
-            <div>
-                <Block>{currentUser.getName()}</Block>
-                <Block type={blockTypes.TEXT} onClick={handleLogout}>
-                    {"LOGOUT ->"}
+            <div className="profile-shortcut-holder">
+                <Block
+                    onClick={() =>
+                        navigate(paths.PROFILE.basePath + currentUser.getName())
+                    }
+                >
+                    {currentUser.getName()}
                 </Block>
+                <Block onClick={handleLogout}>{"LOGOUT"}</Block>
             </div>
         );
     };
 
     const LoginBlock = (): ReactElement => {
-        if([paths.SIGN_IN.path, paths.SIGN_UP.path].includes(location.pathname)) {
+        if (
+            [paths.SIGN_IN.path, paths.SIGN_UP.path].includes(location.pathname)
+        ) {
             return <Fragment></Fragment>;
         }
 
