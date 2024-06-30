@@ -4,9 +4,13 @@ import BlocksSet from "../../components/BlocksSet";
 import Block from "../../components/Block";
 import { setVariants } from "../../components/BlocksSet";
 import { blockTypes } from "../../components/Block";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { paths } from "../../router/routes";
+
 import './style.css'
 const LandingPage = (): ReactElement => {
+    const navigate = useNavigate();
+
     return (
         <DefaultLayout>
             <>
@@ -17,23 +21,30 @@ const LandingPage = (): ReactElement => {
                             <Block type={blockTypes.OUTLINED} width="30%" height="150px">
 
                             </Block>
-                            <Block type={blockTypes.OUTLINED} width="30%" height="150px">
+                            <Block type={blockTypes.OUTLINED} width="10%" height="150px">
+
+                            </Block>
+                            <Block type={blockTypes.OUTLINED} width="10%" height="150px">
 
                             </Block>
                             <Block type={blockTypes.OUTLINED} width="30%" height="150px">
 
                             </Block>
-                            <Block type={blockTypes.OUTLINED} width="30%" height="150px">
-
-                            </Block>
-                            <Block type={blockTypes.OUTLINED} width="30%" height="150px">
+                            <Block type={blockTypes.OUTLINED} width="20%" height="150px">
 
                             </Block>
                         </>
                     </BlocksSet>
                 </div>
-
-                <h2 className="link-title"><Link to='/courses' className="auth-link large">HOME</Link></h2>
+                <div className="link-container">
+                    <Block
+                        width="100px"
+                        height="30px"
+                        onClick={() => navigate(paths.HOME.path)}
+                    >
+                        HOME
+                    </Block>
+                </div>
             </>
 
         </DefaultLayout>
