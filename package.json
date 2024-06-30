@@ -2,6 +2,7 @@
   "name": "course-assistant",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Serbin-Executive.github.io/project-demo",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.1",
     "@testing-library/jest-dom": "^5.17.0",
@@ -11,6 +12,7 @@
     "@types/node": "^16.18.101",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "gh-pages": "^6.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^9.1.0",
@@ -19,6 +21,8 @@
     "typescript": "^4.9.5"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
