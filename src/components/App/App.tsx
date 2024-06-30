@@ -6,7 +6,7 @@ import "./style.css";
 import "./ui.css";
 
 function App() {
-    const [isSidebarExpanded, setIsSidebarExpanded] = useState<boolean>(true);
+    const [isSidebarExpanded, setIsSidebarExpanded] = useState<boolean>(true); 
 
     return (
         <div className="application">

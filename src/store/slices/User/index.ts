@@ -20,7 +20,8 @@ export const userSlice: Slice<IUserSlice> = createSlice({
         },
         setCurrentUser: (state, action: PayloadAction<User>) => {
             state.currentUser = action.payload;
-        }
+            localStorage.setItem("user", JSON.stringify(action.payload));
+        },
     },
 });
 

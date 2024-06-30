@@ -1,6 +1,6 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import pagesMeta from "./routes";
 
-const Router = createBrowserRouter(pagesMeta);
+const Router = createHashRouter(pagesMeta);
 
 export default Router;

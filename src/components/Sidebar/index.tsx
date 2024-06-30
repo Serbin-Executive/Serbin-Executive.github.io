@@ -17,6 +17,7 @@ const Sidebar = (): ReactElement => {
             <div className="courses-navigation-list">
                 {Courses.map((course) => (
                     <Block
+                        key={course.id}
                         height="50px"
                         additionalSelectors={"sided"}
                         isActive={courseId === course.id}

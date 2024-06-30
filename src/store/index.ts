@@ -4,6 +4,10 @@ import Application from "./slices/Application";
 import User from "./slices/User";
 
 const Store = configureStore({
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+        // @ts-ignore
+        serializableCheck: false,
+    }),
     reducer: {
         application: Application,
         user: User,

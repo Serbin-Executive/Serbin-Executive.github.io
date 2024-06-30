@@ -1,5 +1,6 @@
 import {
     ReactElement,
+    useEffect,
 } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { paths } from "../../router/routes";
@@ -9,6 +10,29 @@ import { useAppDispatch } from "../../store";
 import useFormWithValidation, { EMAIL_PATTERN } from "../../hooks/useFormWithValidation";
 
 const SignIn = (): ReactElement => {
+
+    useEffect(() => {
+        const savedUserString: string | null = localStorage.getItem("user");
+
+        if (!savedUserString) {
+            console.log("savedUserString", savedUserString);
+            return;
+        }
+
+        const savedUser = JSON.parse(savedUserString);
+        console.log("savedUser", savedUser);
+
+        if(!savedUser.name || !savedUser.email) {
+            return;
+        }
+
+        dispatch(setCurrentUser(new User(savedUser.name, savedUser.email)));
+        dispatch(setIsLoggedIn(true));
+        navigate(paths.HOME.path);
+        
+        // eslint-disable-next-line
+    }, []);
+    
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 

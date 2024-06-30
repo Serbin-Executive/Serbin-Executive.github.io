@@ -22,7 +22,7 @@ const ProfilePage = (): ReactElement => {
                         >
                             Avatar
                         </Block>
-                        <Block type={blockTypes.TEXT}>
+                        <Block type={blockTypes.TEXT} width="min-content">
                             {currentUser.getEmail()}
                         </Block>
                     </div>
