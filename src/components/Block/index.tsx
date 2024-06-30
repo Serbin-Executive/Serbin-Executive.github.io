@@ -5,6 +5,7 @@ export const enum blockTypes {
     TEXT = "text",
     PALLETTE = "pallette",
     MIXED = "mixed",
+    OUTLINED = 'outlined'
 }
 
 export interface IBlockProps {
